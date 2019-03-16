@@ -25,13 +25,16 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getBaseContext(),MainActivity.class);
+                Intent i1 = new Intent(getBaseContext(), Bienvenido.class);
+                Intent i2 = new Intent(getBaseContext(), Verificar.class);
 
-                i.putExtra("user", txtUsuario.getText());
-                i.putExtra("pass", txtContra.getText());
 
-                if (txtUsuario.getText() == "eduardo" && txtContra.getText() =="edu1297"){
-                    startActivity(i);
+                if (txtUsuario.getText().equals("edu") && txtContra.getText().equals("edu97")) {
+                    i1.putExtra("user", txtUsuario.getText());
+                    i1.putExtra("pass", txtContra.getText());
+                    startActivity(i1);
+                } else {
+                    startActivity(i2);
                 }
 
             }
