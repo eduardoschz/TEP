@@ -17,24 +17,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtUsuario = (TextView) findViewById(R.id.txtUsuario);
-        txtContra = (TextView) findViewById(R.id.txtContra);
+        txtUsuario = findViewById(R.id.txtUsuario);
+        txtContra = findViewById(R.id.txtContra);
 
-        btnEnviar = (Button) findViewById(R.id.btnEnviar);
+        btnEnviar = findViewById(R.id.btnEnviar);
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1 = new Intent(getBaseContext(), Bienvenido.class);
-                Intent i2 = new Intent(getBaseContext(), Verificar.class);
 
-
-                if (txtUsuario.getText().equals("edu") && txtContra.getText().equals("edu97")) {
-                    i1.putExtra("user", txtUsuario.getText());
-                    i1.putExtra("pass", txtContra.getText());
+                if ((txtUsuario.getText() != null || txtContra.getText() != null) &&
+                        ((txtUsuario.getText().toString().equals("edu")) && txtContra.getText().toString().equals("edu97"))){
+                    Intent i1 = new Intent(getBaseContext(), Bienvenido.class);
+                    i1.putExtra("user", txtUsuario.getText().toString());
+                    i1.putExtra("pass", txtContra.getText().toString());
                     startActivity(i1);
+                    //finish();
                 } else {
+                    Intent i2 = new Intent(getBaseContext(), Verificar.class);
                     startActivity(i2);
+                    finish();
+
                 }
 
             }
