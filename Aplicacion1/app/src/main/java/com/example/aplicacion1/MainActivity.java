@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                         ((txtUsuario.getText().toString().equals("edu")) && txtContra.getText().toString().equals("edu97"))){
                     Intent i1 = new Intent(getBaseContext(), Bienvenido.class);
                     i1.putExtra("user", txtUsuario.getText().toString());
-                    i1.putExtra("pass", txtContra.getText().toString());
+                    //i1.putExtra("pass", txtContra.getText().toString());
                     startActivity(i1);
                     //finish();
                 } else {
