@@ -10,28 +10,42 @@
         android:id="@+id/txtBienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="8dp"
         android:text="Bienvenido"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
         android:text="null"
         android:textColor="@android:color/holo_green_dark"
         android:textColorLink="@android:color/holo_green_dark"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="182dp"
-        tools:layout_editor_absoluteY="231dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBienvenido" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="154dp"
         android:layout_height="83dp"
-        app:srcCompat="@drawable/exito"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="374dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+        app:srcCompat="@drawable/exito" />
 </android.support.constraint.ConstraintLayout>
