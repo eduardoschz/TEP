@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,16 +25,28 @@ public class Juego extends AppCompatActivity {
     ArrayList<Integer> seq = new ArrayList<>();
     List<Integer> jugador = new ArrayList<>();
 
+
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
         txtNombre = findViewById(R.id.txtNombre);
+
         btnAma = findViewById(R.id.btnAma);
+        btnAma.setBackgroundColor(Color.YELLOW);
+
         btnAzul = findViewById(R.id.btnAzu);
+        btnAzul.setBackgroundColor(Color.BLUE);
+
+
         btnVerde = findViewById(R.id.btnVerde);
+        btnVerde.setBackgroundColor(Color.GREEN);
+
         btnRojo = findViewById(R.id.btnRojo);
+        btnRojo.setBackgroundColor(Color.RED);
+
         Bundle datos = getIntent().getExtras();
         txtNombre.setText(datos.getString("name"));
 
@@ -44,13 +57,16 @@ public class Juego extends AppCompatActivity {
                 jugador.add(VERDE);
                 sonido(VERDE);
             }
+
+
         });
 
-        btnRojo.setOnClickListener(new View.OnClickListener() {
+        btnRojo.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View v, MotionEvent event) {
                 jugador.add(ROJO);
                 sonido(ROJO);
+                return false;
             }
         });
 
@@ -83,25 +99,35 @@ public class Juego extends AppCompatActivity {
 
         switch (s) {
             case VERDE:
-                btnVerde.setBackgroundColor(Color.argb(50,0,255,0));
+                btnVerde.setBackgroundColor(Color.argb(255,0,255,0));
                 m = MediaPlayer.create(getBaseContext(), R.raw.s1);
                 m.start();
                 break;
             case ROJO:
-                btnRojo.setBackgroundColor(Color.argb(150,255,0,0));
+                btnRojo.setBackgroundColor(Color.rgb(255,50,10));
                 m = MediaPlayer.create(getBaseContext(), R.raw.s2);
                 m.start();
                 break;
             case AMARILLO:
-                btnAma.setBackgroundColor(Color.argb(150,229,190,0));
+                btnAma.setBackgroundColor(Color.YELLOW);
                 m = MediaPlayer.create(getBaseContext(), R.raw.s3);
                 m.start();
                 break;
             case AZUL:
-                btnAzul.setBackgroundColor(Color.argb(150, 0,0,255));
+                btnAzul.setBackgroundColor(Color.BLUE);
                 m = MediaPlayer.create(getBaseContext(), R.raw.s4);
                 m.start();
                 break;
+            default:
+                btnAma.setBackgroundColor(Color.YELLOW);
+
+                btnAzul.setBackgroundColor(Color.BLUE);
+
+                btnVerde.setBackgroundColor(Color.GREEN);
+
+                btnRojo.setBackgroundColor(Color.RED);
+
+
 
         }
 
